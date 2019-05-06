@@ -7,7 +7,6 @@ const mongoose = require('mongoose');
 const config = require('./config/env');
 const http = require('http');
 
-
 mongoose.connect(config.database.name, { useNewUrlParser: true });
 // On Connection
 mongoose.connection.on('connected', () => {
@@ -47,9 +46,8 @@ const certificate = require('./routes/certificate')
 //Running Port
 const port = process.env.PORT || 3000;
 var production = true;
+
 // CORS Middleware
-
-
 if (production) {
     //app.use(cors({ origin: 'http://www.gyanmitra19.mepcoeng.ac.in' }));
     //app.use(cors({ origin: 'http://localhost:3000' }));
@@ -65,7 +63,6 @@ if (production) {
 // Set Static Folder
 app.use('/assests', express.static('assests'));
 app.use('/public', express.static('../GyanMitra19-AngularJs/public'));
-
 
 // Body Parser Middleware
 app.use(bodyParser.json());
